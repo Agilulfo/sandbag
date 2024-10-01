@@ -60,6 +60,11 @@ describe('French', () => {
       expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: v11 for grade scale french')
       expect(invalidGrade).toEqual(-1)
     })
+    test('not sequential grades', () => {
+      const invalidGrade = French.getScore('5a/6a')
+      // expect(console.warn).toHaveBeenCalledWith('TODO: error to be defined')
+      expect(invalidGrade).toEqual(-1) // this returns [49,50] last score of 5a and first of 5a+
+    })
   })
 
   describe('Get Grade', () => {
